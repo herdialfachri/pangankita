@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Profile"
+            android:text="Settings"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="29sp"
@@ -52,9 +52,8 @@
             app:layout_constraintStart_toStartOf="@+id/tv_profile"
             app:layout_constraintTop_toBottomOf="@+id/tv_profile" />
 
-        <!--awal_hubungi_desa-->
         <Button
-            android:id="@+id/btn_hubungi_desa"
+            android:id="@+id/btn_gotoprofile"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginStart="8dp"
@@ -66,15 +65,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_about" />
 
+        <TextView
+            android:id="@+id/tv_gotoprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="My Profile"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_gotoprofile"
+            app:layout_constraintStart_toEndOf="@+id/iv_gotoprofile"
+            app:layout_constraintTop_toTopOf="@+id/iv_gotoprofile" />
+
         <ImageView
-            android:id="@+id/iv_hubungi_desa"
+            android:id="@+id/iv_gotoprofile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:src="@drawable/baseline_chat_24"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_hubungi_desa"
-            app:layout_constraintStart_toStartOf="@+id/btn_hubungi_desa"
-            app:layout_constraintTop_toTopOf="@+id/btn_hubungi_desa" />
+            app:layout_constraintBottom_toBottomOf="@+id/btn_gotoprofile"
+            app:layout_constraintStart_toStartOf="@+id/btn_gotoprofile"
+            app:layout_constraintTop_toTopOf="@+id/btn_gotoprofile" />
 
         <TextView
             android:id="@+id/tv_hubungi_desa"
@@ -87,6 +98,30 @@
             app:layout_constraintBottom_toBottomOf="@+id/iv_hubungi_desa"
             app:layout_constraintStart_toEndOf="@+id/iv_hubungi_desa"
             app:layout_constraintTop_toTopOf="@+id/iv_hubungi_desa" />
+
+        <!--awal_hubungi_desa-->
+        <Button
+            android:id="@+id/btn_hubungi_desa"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_outline"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_gotoprofile" />
+
+        <ImageView
+            android:id="@+id/iv_hubungi_desa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/baseline_chat_24"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_hubungi_desa"
+            app:layout_constraintStart_toStartOf="@+id/btn_hubungi_desa"
+            app:layout_constraintTop_toTopOf="@+id/btn_hubungi_desa" />
 
         <!--awal cara pakai apk-->
         <Button

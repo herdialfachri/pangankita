@@ -1,5 +1,6 @@
 package com.herdialfachri.pangankita.ui.notifications
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -18,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.herdialfachri.pangankita.MainActivity
 import com.herdialfachri.pangankita.R
 import com.herdialfachri.pangankita.databinding.FragmentNotificationsBinding
+
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
@@ -37,20 +39,27 @@ class NotificationsFragment : Fragment() {
         val logoutButton = view.findViewById<Button>(R.id.btn_logout)
         val loadingKeluar = view.findViewById<ProgressBar>(R.id.loadingKeluar)
 
-        viewModel.isUserLoggedIn.observe(viewLifecycleOwner, Observer { isLoggedIn ->
-            if (isLoggedIn) {
-                binding.btnMasuk.visibility = View.GONE
-                logoutButton.visibility = View.VISIBLE
-            } else {
-                binding.btnMasuk.visibility = View.VISIBLE
-                logoutButton.visibility = View.GONE
-            }
-        })
+        val sharedPreferences = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+
+        // Set initial visibility based on login state
+        if (isLoggedIn) {
+            binding.btnMasuk.visibility = View.GONE
+            logoutButton.visibility = View.VISIBLE
+            loadUserData()
+        } else {
+            binding.btnMasuk.visibility = View.VISIBLE
+            logoutButton.visibility = View.GONE
+            binding.btnGotoprofile.visibility = View.GONE
+            binding.ivGotoprofile.visibility = View.GONE
+            binding.tvGotoprofile.visibility = View.GONE
+        }
 
         logoutButton.setOnClickListener {
             loadingKeluar.visibility = View.VISIBLE
             Handler(Looper.getMainLooper()).postDelayed({
                 viewModel.logout()
+                clearUserData() // Hapus data pengguna setelah logout
             }, 1300) // 1.3 detik
         }
 
@@ -74,6 +83,9 @@ class NotificationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnGotoprofile.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_profileActivity)
+        )
         binding.btnMasuk.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_loginActivity)
         )
@@ -94,5 +106,17 @@ class NotificationsFragment : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun loadUserData() {
+        // Implementasikan fungsi ini untuk memuat data pengguna dari SharedPreferences ke tampilan
+    }
+
+    private fun clearUserData() {
+        // Hapus data pengguna dari SharedPreferences
+        val sharedPreferences = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
     }
 }

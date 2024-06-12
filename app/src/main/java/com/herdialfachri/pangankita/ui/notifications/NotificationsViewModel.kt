@@ -20,9 +20,14 @@ class NotificationsViewModel : ViewModel() {
     fun logout() {
         firebaseAuth.signOut()
         _logoutEvent.value = Unit
+        _isUserLoggedIn.value = false // Memperbarui nilai isUserLoggedIn setelah logout
     }
 
     fun isUserAuthenticated(): Boolean {
         return firebaseAuth.currentUser != null
+    }
+
+    fun loginSuccess() {
+        _isUserLoggedIn.value = true // Memperbarui nilai isUserLoggedIn setelah login berhasil
     }
 }
