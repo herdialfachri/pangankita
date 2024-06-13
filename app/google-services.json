@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "131755986757",
+    "project_id": "pangankita2",
+    "storage_bucket": "pangankita2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131755986757:android:3f0943073f632111e7382c",
+        "android_client_info": {
+          "package_name": "com.herdialfachri.pangankita"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy0lcc5Tu8hm-ey77BxmY1hpt1iZrZ3CA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
