@@ -33,17 +33,61 @@
             android:id="@+id/action_navigation_notifications_to_loginActivity"
             app:destination="@id/loginActivity" />
         <action
-            android:id="@+id/action_navigation_notifications_to_profileActivity"
-            app:destination="@id/profileActivity" />
+            android:id="@+id/action_navigation_notifications_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_contactFragment"
+            app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_shareFragment"
+            app:destination="@id/shareFragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <activity
         android:id="@+id/loginActivity"
         android:name="com.herdialfachri.pangankita.ui.login.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
-    <activity
-        android:id="@+id/profileActivity"
-        android:name="com.herdialfachri.pangankita.ui.profile.ProfileActivity"
-        android:label="activity_profile"
-        tools:layout="@layout/activity_profile" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.herdialfachri.pangankita.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.herdialfachri.pangankita.ui.profile.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" >
+        <action
+            android:id="@+id/action_contactFragment_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+    </fragment>
+    <fragment
+        android:id="@+id/shareFragment"
+        android:name="com.herdialfachri.pangankita.ui.profile.ShareFragment"
+        android:label="fragment_share"
+        tools:layout="@layout/fragment_share" >
+        <action
+            android:id="@+id/action_shareFragment_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.herdialfachri.pangankita.ui.profile.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+    </fragment>
 </navigation>

@@ -8,17 +8,17 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/pakitaa"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/pakitaa"
         android:supportsRtl="true"
         android:theme="@style/Theme.PanganKita"
         tools:targetApi="31">
         <activity
-            android:name=".ui.profile.EditProfileActivity"
+            android:name=".ui.profile.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.profile.ProfileActivity"
+            android:name=".ui.profile.EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ui.signup.SignUpActivity"

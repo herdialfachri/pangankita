@@ -13,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.herdialfachri.pangankita.MainActivity
 import com.herdialfachri.pangankita.R
+import com.herdialfachri.pangankita.ui.profile.ForgotPasswordActivity
 import com.herdialfachri.pangankita.ui.signup.SignUpActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -21,15 +22,28 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var signupRedirectText: TextView
+    private lateinit var forgotPassword: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Periksa status login pengguna
+        val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+        if (isLoggedIn) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
         setContentView(R.layout.activity_login)
 
         loginUsername = findViewById(R.id.login_username)
         loginPassword = findViewById(R.id.login_password)
         loginButton = findViewById(R.id.login_button)
         signupRedirectText = findViewById(R.id.signupRedirectText)
+        forgotPassword = findViewById(R.id.forgot_password)
 
         loginButton.setOnClickListener {
             if (!validateUsername() || !validatePassword()) {
@@ -43,6 +57,11 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+        forgotPassword.setOnClickListener {
+            val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun validateUsername(): Boolean {

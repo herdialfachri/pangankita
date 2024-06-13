@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.herdialfachri.pangankita" />
-                  <option name="mobileSdkAppId" value="1:1007529400624:android:7c1ca22ad5f013617bd0f5" />
-                  <option name="projectId" value="pangankita-79c69" />
-                  <option name="projectNumber" value="1007529400624" />
+                  <option name="mobileSdkAppId" value="1:131755986757:android:3f0943073f632111e7382c" />
+                  <option name="projectId" value="pangankita2" />
+                  <option name="projectNumber" value="131755986757" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

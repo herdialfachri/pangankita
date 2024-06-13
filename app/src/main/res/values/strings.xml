@@ -11,4 +11,17 @@
     <string name="sign_in">Sign In</string>
     <string name="forgot_password">Forgot password</string>
     <string name="sign_up">Sign up</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="slogan">Green Your Life with PanganKita.</string>
+    <string name="username">Username</string>
+    <string name="client_id">1007529400624-tqkol3djqml58hh6fhh0gv51vcaekq6g.apps.googleusercontent.com</string>
+    <string name="register">Register</string>
+    <string name="make_your_new_account">Create your new Account</string>
+    <string name="pangankita_desc">Pangan Kita is an innovative application designed to connect consumers directly with farmers, eliminating the need for intermediaries. This platform aims to empower local farmers by providing them with direct access to a broader market, while enabling consumers to purchase fresh agricultural products at more affordable prices. Through Pangan Kita, farmers can sell their produce directly to consumers, removing middlemen who typically take a significant share of the profits, ensuring farmers receive a fairer price for their hard work.</string>
+    <string name="pangan_kita">Pangan Kita</string>
+    <string name="version">Version 1.0</string>
+    <string name="textDescription">Description</string>
+    <string name="name">Name</string>
+    <string name="already_an_user_login">Already an user? Login</string>
 </resources>

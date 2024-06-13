@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.loginsignuprealtime.HelperClass
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -27,6 +28,18 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
+        // Temukan Toolbar
+        val toolbar: Toolbar = findViewById(R.id.profileback)
+        setSupportActionBar(toolbar)
+
+        // Atur navigation click listener
+        toolbar.setNavigationOnClickListener {
+            // Intent ke LoginActivity
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
 
         signupName = findViewById(R.id.signup_name)
         signupEmail = findViewById(R.id.signup_email)
@@ -52,11 +65,15 @@ class SignUpActivity : AppCompatActivity() {
                 "You have signed up successfully!",
                 Toast.LENGTH_SHORT
             ).show()
+
+            // Redirect to LoginActivity and clear all previous activities
             val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
 
         loginRedirectText.setOnClickListener {
+            // Directly go to LoginActivity
             val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
             startActivity(intent)
         }

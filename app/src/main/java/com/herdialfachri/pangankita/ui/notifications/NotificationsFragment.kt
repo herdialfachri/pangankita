@@ -27,6 +27,8 @@ class NotificationsFragment : Fragment() {
 
     private val viewModel: NotificationsViewModel by viewModels()
 
+    private var bottomNav: BottomNavigationView? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,12 +36,17 @@ class NotificationsFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val view = binding.root
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val logoutButton = view.findViewById<Button>(R.id.btn_logout)
         val loadingKeluar = view.findViewById<ProgressBar>(R.id.loadingKeluar)
 
-        val sharedPreferences = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences =
+            requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
 
         // Set initial visibility based on login state
@@ -69,25 +76,35 @@ class NotificationsFragment : Fragment() {
             startActivity(intent)
         })
 
-        return view
+        // Mendapatkan referensi ke bottom navigation view dari aktivitas
+        bottomNav = activity?.findViewById(R.id.nav_view)
+
+        // Mengatur listener untuk navigasi tombol-tombol
+        setupNavigationListeners()
     }
 
-    //        fungsi agar ketika pindah ke fragment lain bottom nav di hide
     override fun onResume() {
         super.onResume()
-        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        // Munculkan BottomNavigationView ketika kembali ke fragment ini
         bottomNav?.visibility = View.VISIBLE
     }
 
-    //    fungsi berpindah dari setiap button ke fragment lain
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    private fun setupNavigationListeners() {
+        // Fungsi berpindah dari setiap button ke fragment lain
         binding.btnGotoprofile.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_profileActivity)
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_profileFragment)
         )
         binding.btnMasuk.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_loginActivity)
+        )
+        binding.btnTentangAplikasi.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_aboutFragment)
+        )
+        binding.btnHubungiDesa.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_contactFragment)
+        )
+        binding.buttonUndang.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_shareFragment)
         )
         binding.buttonTentangAplikasi.setOnClickListener {
             // Menampilkan pesan "Fitur sedang dikembangkan"
@@ -99,8 +116,8 @@ class NotificationsFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 
@@ -114,9 +131,11 @@ class NotificationsFragment : Fragment() {
 
     private fun clearUserData() {
         // Hapus data pengguna dari SharedPreferences
-        val sharedPreferences = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences =
+            requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.clear()
         editor.apply()
     }
 }
+
