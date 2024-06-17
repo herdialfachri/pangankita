@@ -42,7 +42,7 @@ class EditProfileActivity : AppCompatActivity() {
 
         saveButton.setOnClickListener {
             if (isNameChanged() || isPasswordChanged() || isEmailChanged()) {
-                Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Profile change successful", Toast.LENGTH_SHORT).show()
                 // Navigate back to MainActivity after saving data
                 navigateToMainActivity()
             } else {
@@ -104,8 +104,9 @@ class EditProfileActivity : AppCompatActivity() {
         editor.putString("password", passwordUser)
         editor.apply()
 
-        // Navigate to MainActivity
+        // Navigate to MainActivity with an extra flag
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("navigateToNotifications", true)
         startActivity(intent)
         finish()
     }

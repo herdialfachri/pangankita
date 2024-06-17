@@ -33,6 +33,8 @@ class SignUpActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.profileback)
         setSupportActionBar(toolbar)
 
+        supportActionBar?.title = ""
+
         // Atur navigation click listener
         toolbar.setNavigationOnClickListener {
             // Intent ke LoginActivity

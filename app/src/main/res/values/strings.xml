@@ -24,4 +24,8 @@
     <string name="textDescription">Description</string>
     <string name="name">Name</string>
     <string name="already_an_user_login">Already an user? Login</string>
+    <string name="kategori">Kategori</string>
+    <string name="produk">Produk</string>
+    <string name="sellerName">Seller Name</string>
+    <string name="location">Location</string>
 </resources>

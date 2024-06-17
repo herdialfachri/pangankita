@@ -100,10 +100,10 @@ class NotificationsFragment : Fragment() {
         binding.btnTentangAplikasi.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_aboutFragment)
         )
-        binding.btnHubungiDesa.setOnClickListener (
+        binding.btnHubungiDesa.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_contactFragment)
         )
-        binding.buttonUndang.setOnClickListener (
+        binding.buttonUndang.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_shareFragment)
         )
         binding.buttonTentangAplikasi.setOnClickListener {
