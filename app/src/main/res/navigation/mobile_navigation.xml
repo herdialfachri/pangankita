@@ -24,8 +24,8 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
-            android:id="@+id/action_navigation_dashboard_to_clasifyActivity"
-            app:destination="@id/clasifyActivity" />
+            android:id="@+id/action_navigation_dashboard_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment
@@ -39,19 +39,19 @@
         <action
             android:id="@+id/action_navigation_notifications_to_profileFragment"
             app:destination="@id/profileFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_right" />
         <action
             android:id="@+id/action_navigation_notifications_to_contactFragment"
-            app:destination="@id/contactFragment" />
+            app:destination="@id/contactFragment"
+            app:enterAnim="@anim/slide_right" />
         <action
             android:id="@+id/action_navigation_notifications_to_shareFragment"
-            app:destination="@id/shareFragment" />
+            app:destination="@id/shareFragment"
+            app:enterAnim="@anim/slide_right" />
         <action
             android:id="@+id/action_navigation_notifications_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/slide_right" />
     </fragment>
     <activity
         android:id="@+id/loginActivity"
@@ -102,9 +102,4 @@
         android:name="com.herdialfachri.pangankita.ui.profile.EditProfileActivity"
         android:label="activity_edit_profile"
         tools:layout="@layout/activity_edit_profile" />
-    <activity
-        android:id="@+id/clasifyActivity"
-        android:name="com.herdialfachri.pangankita.ui.ml.ClasifyActivity"
-        android:label="activity_clasify"
-        tools:layout="@layout/activity_clasify" />
 </navigation>

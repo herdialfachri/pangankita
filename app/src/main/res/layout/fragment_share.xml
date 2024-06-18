@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    android:fillViewport="true"
+    android:theme="@style/CustomTextViewStyle"
     tools:context=".ui.profile.ShareFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:theme="@style/CustomTextViewStyle">
 
     <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
@@ -57,9 +51,10 @@
         android:layout_marginTop="150dp"
         android:layout_marginEnd="24dp"
         android:gravity="center"
-        android:text="Click the button bellow to share this App"
+        android:text="@string/share_desc"
         android:textColor="@color/black"
         android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_share"
         app:layout_constraintEnd_toEndOf="@+id/iv_share"
         app:layout_constraintStart_toStartOf="@+id/iv_share"
         app:layout_constraintTop_toBottomOf="@+id/iv_share" />
@@ -67,16 +62,14 @@
     <Button
         android:id="@+id/btn_share"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
         android:text="Share"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tv_share_deskripsi"
-        app:layout_constraintStart_toStartOf="@+id/tv_share_deskripsi"
-        app:layout_constraintTop_toBottomOf="@+id/tv_share_deskripsi" />
+        app:layout_constraintStart_toStartOf="@+id/tv_share_deskripsi" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

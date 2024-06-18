@@ -18,6 +18,7 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.herdialfachri.pangankita.R
 import com.herdialfachri.pangankita.ml.ModelUnquant
 import kotlinx.coroutines.CoroutineScope
@@ -33,7 +34,8 @@ import java.nio.ByteOrder
 class DashboardFragment : Fragment() {
 
     private lateinit var result: TextView
-    private lateinit var confidence: TextView
+//    private lateinit var confidence: TextView
+    private lateinit var ingredients: TextView
     private lateinit var imageView: ImageView
     private lateinit var picture: Button
     private lateinit var galleryButton: Button
@@ -42,13 +44,71 @@ class DashboardFragment : Fragment() {
 
     // Menambahkan map untuk deskripsi makanan
     private val foodDescriptions = mapOf(
-        "Ayam Betutu" to "Ayam Betutu adalah masakan ayam khas Bali yang dimasak dengan bumbu khas.",
-        "Beberuk Terong" to "Beberuk Terong adalah makanan khas Lombok yang terbuat dari terong.",
-        "Coto Makasar" to "Coto Makasar adalah makanan tradisional dari Makassar, terbuat dari daging dan jeroan sapi.",
-        "Gudeg" to "Gudeg adalah masakan khas Yogyakarta yang terbuat dari nangka muda yang dimasak dengan santan.",
-        "Kerak Telor" to "Kerak Telor adalah makanan khas Betawi yang terbuat dari telur bebek dan beras ketan putih.",
-        // Tambahkan deskripsi lainnya di sini
-        // ...
+        "Ayam Betutu" to R.string.ayam_betutu,
+        "Beberuk Terong" to R.string.beberuk_terong,
+        "Coto Makasar" to R.string.coto_makassar,
+        "Gudeg" to R.string.gudeg,
+        "Kerak Telor" to R.string.kerak_telor,
+        "Mie Aceh" to R.string.mie_aceh,
+        "Nasi Kuning" to R.string.nasi_kuning,
+        "Nasi Pecel" to R.string.nasi_pecel,
+        "Papeda" to R.string.papeda,
+        "Pempek" to R.string.pempek,
+        "Peyeum" to R.string.peuyeum,
+        "Rawon" to R.string.rawon,
+        "Rendang" to R.string.rendang,
+        "Sate Madura" to R.string.sate_madura,
+        "Serabi" to R.string.serabi,
+        "Soto Banjar" to R.string.soto_banjar,
+        "Soto Lamongan" to R.string.soto_lamongan,
+        "Tahu Sumedang" to R.string.tahu_sumedang,
+        "Bakso" to R.string.bakso,
+        "Bebek Betutu" to R.string.bebek_betutu,
+        "Gado-Gado" to R.string.gado_gado,
+        "Nasi Goreng" to R.string.nasi_goreng,
+        "Batagor" to R.string.batagor,
+        "Ayam Goreng" to R.string.ayam_goreng,
+        "Ayam Pop" to R.string.ayam_pop,
+        "Dendeng Batokok" to R.string.dendeng_batokok,
+        "Gulai Ikan" to R.string.gulai_ikan,
+        "Gulai Tambusu" to R.string.gulai_tambusu,
+        "Gulai Tunjang" to R.string.gulai_tunjang,
+        "Telur Balado" to R.string.telur_balado,
+        "Telur Dadar" to R.string.telur_dadar
+    )
+
+    private val foodIngredients = mapOf(
+        "Ayam Betutu" to R.string.bahan_ayam_betutu,
+        "Beberuk Terong" to R.string.bahan_beberuk_terong,
+        "Coto Makasar" to R.string.bahan_coto_makassar,
+        "Gudeg" to R.string.bahan_gudeg,
+        "Kerak Telor" to R.string.bahan_kerak_telor,
+        "Mie Aceh" to R.string.bahan_mie_aceh,
+        "Nasi Kuning" to R.string.bahan_nasi_kuning,
+        "Nasi Pecel" to R.string.bahan_nasi_pecel,
+        "Papeda" to R.string.bahan_papeda,
+        "Pempek" to R.string.bahan_pempek,
+        "Peyeum" to R.string.bahan_peuyeum,
+        "Rawon" to R.string.bahan_rawon,
+        "Rendang" to R.string.bahan_rendang,
+        "Sate Madura" to R.string.bahan_sate_madura,
+        "Serabi" to R.string.bahan_serabi,
+        "Soto Banjar" to R.string.bahan_soto_banjar,
+        "Soto Lamongan" to R.string.bahan_soto_lamongan,
+        "Tahu Sumedang" to R.string.bahan_tahu_sumedang,
+        "Bakso" to R.string.bahan_bakso,
+        "Bebek Betutu" to R.string.bahan_bebek_betutu,
+        "Gado-Gado" to R.string.bahan_gado_gado,
+        "Nasi Goreng" to R.string.bahan_nasi_goreng,
+        "Batagor" to R.string.bahan_batagor,
+        "Ayam Goreng" to R.string.bahan_ayam_goreng,
+        "Ayam Pop" to R.string.bahan_ayam_pop,
+        "Dendeng Batokok" to R.string.bahan_dendeng_batokok,
+        "Gulai Ikan" to R.string.bahan_gulai_ikan,
+        "Gulai Tambusu" to R.string.bahan_gulai_tambusu,
+        "Gulai Tunjang" to R.string.bahan_gulai_tunjang,
+        "Telur Balado" to R.string.bahan_telur_balado,
+        "Telur Dadar" to R.string.bahan_telur_dadar
     )
 
     override fun onCreateView(
@@ -58,11 +118,12 @@ class DashboardFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
         result = view.findViewById(R.id.result)
-        confidence = view.findViewById(R.id.confidence)
+//        confidence = view.findViewById(R.id.confidence)
         imageView = view.findViewById(R.id.imageView)
         picture = view.findViewById(R.id.button)
         galleryButton = view.findViewById(R.id.galleryButton)
         description = view.findViewById(R.id.description)
+        ingredients = view.findViewById(R.id.ingred)
 
         picture.setOnClickListener {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
@@ -136,12 +197,13 @@ class DashboardFragment : Fragment() {
                     s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100)
                 }
 
-                val descriptionText = foodDescriptions[classificationResult] ?: "Deskripsi tidak tersedia"
+                val descriptionResId = foodDescriptions[classificationResult] ?: R.string.description_not_available
+                val ingredientsResId = foodIngredients[classificationResult] ?: R.string.ingredients_not_available
 
                 withContext(Dispatchers.Main) {
                     result.text = classificationResult
-                    confidence.text = s
-                    description.text = descriptionText
+                    description.setText(descriptionResId)
+                    ingredients.setText(ingredientsResId)
                     model.close()
                 }
             } catch (e: IOException) {

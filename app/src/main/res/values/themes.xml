@@ -24,6 +24,11 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="CustomTextViewBottomNav" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/interregular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="BottomNavigationView.TextAppearance" parent="TextAppearance.AppCompat.Small">
         <item name="android:fontFamily">@font/montserratsemibold</item>
         <item name="android:textSize">12sp</item>
