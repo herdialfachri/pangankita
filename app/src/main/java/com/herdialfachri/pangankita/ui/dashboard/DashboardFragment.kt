@@ -37,7 +37,19 @@ class DashboardFragment : Fragment() {
     private lateinit var imageView: ImageView
     private lateinit var picture: Button
     private lateinit var galleryButton: Button
+    private lateinit var description: TextView
     private val imageSize = 224
+
+    // Menambahkan map untuk deskripsi makanan
+    private val foodDescriptions = mapOf(
+        "Ayam Betutu" to "Ayam Betutu adalah masakan ayam khas Bali yang dimasak dengan bumbu khas.",
+        "Beberuk Terong" to "Beberuk Terong adalah makanan khas Lombok yang terbuat dari terong.",
+        "Coto Makasar" to "Coto Makasar adalah makanan tradisional dari Makassar, terbuat dari daging dan jeroan sapi.",
+        "Gudeg" to "Gudeg adalah masakan khas Yogyakarta yang terbuat dari nangka muda yang dimasak dengan santan.",
+        "Kerak Telor" to "Kerak Telor adalah makanan khas Betawi yang terbuat dari telur bebek dan beras ketan putih.",
+        // Tambahkan deskripsi lainnya di sini
+        // ...
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +62,7 @@ class DashboardFragment : Fragment() {
         imageView = view.findViewById(R.id.imageView)
         picture = view.findViewById(R.id.button)
         galleryButton = view.findViewById(R.id.galleryButton)
+        description = view.findViewById(R.id.description)
 
         picture.setOnClickListener {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
@@ -123,9 +136,12 @@ class DashboardFragment : Fragment() {
                     s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100)
                 }
 
+                val descriptionText = foodDescriptions[classificationResult] ?: "Deskripsi tidak tersedia"
+
                 withContext(Dispatchers.Main) {
                     result.text = classificationResult
                     confidence.text = s
+                    description.text = descriptionText
                     model.close()
                 }
             } catch (e: IOException) {
