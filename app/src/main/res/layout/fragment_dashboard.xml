@@ -28,7 +28,7 @@
     <Button
         android:id="@+id/toOffline"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="32dp"
@@ -43,7 +43,7 @@
     <Button
         android:id="@+id/toOnline"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:layout_above="@id/toOffline"
         android:layout_centerInParent="true"
         android:layout_marginEnd="8dp"

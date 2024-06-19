@@ -26,6 +26,12 @@
         <action
             android:id="@+id/action_navigation_dashboard_to_navigation_home"
             app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_onlineClasifyActivity"
+            app:destination="@id/onlineClasifyActivity" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_howToUseActivity"
+            app:destination="@id/howToUseActivity" />
     </fragment>
 
     <fragment
@@ -102,4 +108,14 @@
         android:name="com.herdialfachri.pangankita.ui.profile.EditProfileActivity"
         android:label="activity_edit_profile"
         tools:layout="@layout/activity_edit_profile" />
+    <activity
+        android:id="@+id/onlineClasifyActivity"
+        android:name="com.herdialfachri.pangankita.ui.ml.online.OnlineClasifyActivity"
+        android:label="activity_online_classify"
+        tools:layout="@layout/activity_online_classify" />
+    <activity
+        android:id="@+id/howToUseActivity"
+        android:name="com.herdialfachri.pangankita.ui.ml.HowToUseActivity"
+        android:label="activity_how_to_use"
+        tools:layout="@layout/activity_how_to_use" />
 </navigation>

@@ -100,5 +100,8 @@
     <string name="desc">Desc :</string>
     <string name="ingredient">Ingredient:</string>
     <string name="share_desc">Share this app now using the button below and help your friends experience its benefits!</string>
+    <string name="analyze">Analyze</string>
+    <string name="gallery">gallery</string>
+    <string name="camera">camera</string>
 
 </resources>

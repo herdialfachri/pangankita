@@ -74,5 +74,8 @@ dependencies {
     implementation(libs.tensorflow.lite.metadata.v044)
     implementation(libs.androidx.lifecycle.runtime.ktx.v262)
     implementation(libs.tensorflow.lite.task.vision)
+    val nav_version = "2.4.0"
+    implementation (libs.androidx.navigation.fragment.ktx.v240)
+    implementation (libs.androidx.navigation.ui.ktx.v240)
 
 }

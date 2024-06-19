@@ -19,11 +19,13 @@ constraintlayout = "2.1.4"
 lifecycleLivedataKtx = "2.8.1"
 lifecycleViewmodelKtx = "2.8.1"
 navigationFragmentKtx = "2.7.7"
+navigationFragmentKtxVersion = "2.4.0"
 navigationUiKtx = "2.7.7"
 activity = "1.8.0"
 googleServices = "4.4.2"
 firebaseAuth = "23.0.0"
 firebaseDatabaseKtx = "21.0.0"
+navigationUiKtxVersion = "2.4.0"
 playServiceAuth = "20.7.0"
 firebaseDatabase = "21.0.0"
 firebaseAuthKtx = "23.0.0"
@@ -43,6 +45,8 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-exifinterface = { module = "androidx.exifinterface:exifinterface", version.ref = "exifinterface" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-runtime-ktx-v262 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
+androidx-navigation-fragment-ktx-v240 = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtxVersion" }
+androidx-navigation-ui-ktx-v240 = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtxVersion" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
