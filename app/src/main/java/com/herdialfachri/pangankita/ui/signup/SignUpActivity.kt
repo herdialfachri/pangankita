@@ -8,10 +8,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.loginsignuprealtime.HelperClass
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.herdialfachri.pangankita.R
+import com.herdialfachri.pangankita.ui.data.HelperClass
 import com.herdialfachri.pangankita.ui.login.LoginActivity
 
 class SignUpActivity : AppCompatActivity() {
@@ -57,7 +57,8 @@ class SignUpActivity : AppCompatActivity() {
             val password = signupPassword.text.toString()
 
             if (name.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this@SignUpActivity, "Please fill all the form", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignUpActivity, "Please fill all the form", Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 database = FirebaseDatabase.getInstance()
                 reference = database.getReference("users")

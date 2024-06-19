@@ -1,4 +1,4 @@
-package com.example.loginsignuprealtime
+package com.herdialfachri.pangankita.ui.data
 
 data class HelperClass(
     var name: String? = null,
