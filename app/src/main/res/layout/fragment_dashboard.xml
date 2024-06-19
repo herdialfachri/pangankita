@@ -35,12 +35,14 @@
             android:layout_height="55dp"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:text="Take Picture"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/galleryButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -51,12 +53,12 @@
             android:layout_above="@id/button"
             android:layout_centerInParent="true"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="32dp"
             android:text="Select from Gallery"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <ImageView
@@ -101,6 +103,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ingredient"
             app:layout_constraintEnd_toEndOf="@+id/result"
             app:layout_constraintStart_toStartOf="@+id/result"
             app:layout_constraintTop_toTopOf="@+id/ingredient" />
@@ -121,24 +124,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="@string/desc"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textResult" />
+            app:layout_constraintTop_toBottomOf="@+id/result" />
 
         <TextView
             android:id="@+id/ingredient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
             android:text="@string/ingredient"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/keterangan" />
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

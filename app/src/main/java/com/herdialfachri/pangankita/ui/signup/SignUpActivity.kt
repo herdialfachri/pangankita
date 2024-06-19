@@ -51,27 +51,31 @@ class SignUpActivity : AppCompatActivity() {
         signupButton = findViewById(R.id.signup_button)
 
         signupButton.setOnClickListener {
-            database = FirebaseDatabase.getInstance()
-            reference = database.getReference("users")
-
             val name = signupName.text.toString()
             val email = signupEmail.text.toString()
             val username = signupUsername.text.toString()
             val password = signupPassword.text.toString()
 
-            val helperClass = HelperClass(name, email, username, password)
-            reference.child(username).setValue(helperClass)
+            if (name.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this@SignUpActivity, "Please fill all the form", Toast.LENGTH_SHORT).show()
+            } else {
+                database = FirebaseDatabase.getInstance()
+                reference = database.getReference("users")
 
-            Toast.makeText(
-                this@SignUpActivity,
-                "You have signed up successfully!",
-                Toast.LENGTH_SHORT
-            ).show()
+                val helperClass = HelperClass(name, email, username, password)
+                reference.child(username).setValue(helperClass)
 
-            // Redirect to LoginActivity and clear all previous activities
-            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
+                Toast.makeText(
+                    this@SignUpActivity,
+                    "You have signed up successfully!",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                // Redirect to LoginActivity and clear all previous activities
+                val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
         }
 
         loginRedirectText.setOnClickListener {

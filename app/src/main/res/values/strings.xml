@@ -7,14 +7,14 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="welcome">Welcome</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="password">Password*</string>
     <string name="sign_in">Sign In</string>
     <string name="forgot_password">Forgot password</string>
     <string name="sign_up">Sign up</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="slogan">Green Your Life with PanganKita.</string>
-    <string name="username">Username</string>
+    <string name="username">Username*</string>
     <string name="client_id">1007529400624-tqkol3djqml58hh6fhh0gv51vcaekq6g.apps.googleusercontent.com</string>
     <string name="register">Register</string>
     <string name="make_your_new_account">Create your new Account</string>
