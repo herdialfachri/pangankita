@@ -60,12 +60,6 @@ class ProfileFragment : Fragment() {
         return view
     }
 
-    override fun onStart() {
-        super.onStart()
-        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav?.visibility = View.GONE
-    }
-
     private fun showAllUserData() {
         val sharedPreferences =
             requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)

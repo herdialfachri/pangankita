@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
+        //Untuk fragment yang hanya membutuhkan bottom nav
         val btmdst = listOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
         navController.addOnDestinationChangedListener{_,dst,_ ->
             if (btmdst.contains(dst.id)) {

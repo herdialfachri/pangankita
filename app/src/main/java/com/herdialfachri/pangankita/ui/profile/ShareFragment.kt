@@ -30,12 +30,6 @@ class ShareFragment : Fragment(), View.OnClickListener {
         return view
     }
 
-    override fun onStart() {
-        super.onStart()
-        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav?.visibility = View.GONE
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

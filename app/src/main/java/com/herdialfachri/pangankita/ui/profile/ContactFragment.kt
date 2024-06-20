@@ -24,12 +24,6 @@ class ContactFragment : Fragment(), View.OnClickListener {
         return inflater.inflate(R.layout.fragment_contact, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
-        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomNav?.visibility = View.GONE
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
