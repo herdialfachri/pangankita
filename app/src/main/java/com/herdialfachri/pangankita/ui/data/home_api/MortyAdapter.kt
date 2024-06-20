@@ -1,11 +1,13 @@
 package com.herdialfachri.pangankita.ui.data.home_api
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.herdialfachri.pangankita.R
@@ -38,19 +40,13 @@ class MortyAdapter(private var dataMorty: List<DataItem?>?) :
             .into(holder.imgMorty)
 
         holder.itemView.setOnClickListener {
-            // Buka DetailFragment saat item di RecyclerView diklik
-            val activity = holder.itemView.context as FragmentActivity
-            val fragment = DetailFragment.newInstance(
-                currentItem?.name,
-                currentItem?.photo,
-                currentItem?.whatsappNumber,
-                currentItem?.description,
-                currentItem?.category
-            )
-            activity.supportFragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit()
+            val bundle = Bundle()
+            bundle.putString(DetailFragment.ARG_NAME, currentItem?.name)
+            bundle.putString(DetailFragment.ARG_IMAGE, currentItem?.photo)
+            bundle.putString(DetailFragment.ARG_WA, currentItem?.whatsappNumber)
+            bundle.putString(DetailFragment.ARG_DESC, currentItem?.description)
+            bundle.putString(DetailFragment.ARG_CAT, currentItem?.category)
+            holder.itemView.findNavController().navigate(R.id.action_navigation_home_to_detailFragment, bundle)
         }
     }
 

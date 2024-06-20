@@ -3,6 +3,7 @@ package com.herdialfachri.pangankita
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -36,11 +37,17 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
+
+        val btmdst = listOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+        navController.addOnDestinationChangedListener{_,dst,_ ->
+            if (btmdst.contains(dst.id)) {
+                binding.navView.visibility = View.VISIBLE
+            }
+            else {
+                binding.navView.visibility = View.GONE
+            }
+        }
+
         navView.setupWithNavController(navController)
 
         // Check if we need to navigate to NotificationsFragment
