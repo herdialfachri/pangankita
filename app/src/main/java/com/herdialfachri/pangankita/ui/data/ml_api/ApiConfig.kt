@@ -1,4 +1,4 @@
-package com.herdialfachri.pangankita.ui.data.api
+package com.herdialfachri.pangankita.ui.data.ml_api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,7 +13,7 @@ object ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://classification-xglaudyh2q-et.a.run.app")
+            .baseUrl("https://classification-api-xglaudyh2q-et.a.run.app/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

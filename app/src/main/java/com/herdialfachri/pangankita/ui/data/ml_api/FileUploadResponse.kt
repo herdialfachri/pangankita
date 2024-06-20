@@ -1,4 +1,4 @@
-package com.herdialfachri.pangankita.ui.data.api
+package com.herdialfachri.pangankita.ui.data.ml_api
 
 import com.google.gson.annotations.SerializedName
 

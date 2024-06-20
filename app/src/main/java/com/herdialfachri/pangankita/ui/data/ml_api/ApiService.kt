@@ -1,4 +1,4 @@
-package com.herdialfachri.pangankita.ui.data.api
+package com.herdialfachri.pangankita.ui.data.ml_api
 
 import okhttp3.MultipartBody
 import retrofit2.http.*

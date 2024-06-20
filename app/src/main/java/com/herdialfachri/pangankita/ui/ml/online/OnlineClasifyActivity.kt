@@ -18,8 +18,8 @@ import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.gson.Gson
 import com.herdialfachri.pangankita.R
 import com.herdialfachri.pangankita.databinding.ActivityOnlineClassifyBinding
-import com.herdialfachri.pangankita.ui.data.api.ApiConfig
-import com.herdialfachri.pangankita.ui.data.api.FileUploadResponse
+import com.herdialfachri.pangankita.ui.data.ml_api.ApiConfig
+import com.herdialfachri.pangankita.ui.data.ml_api.FileUploadResponse
 import com.herdialfachri.pangankita.ui.ml.online.CameraActivity.Companion.CAMERAX_RESULT
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
