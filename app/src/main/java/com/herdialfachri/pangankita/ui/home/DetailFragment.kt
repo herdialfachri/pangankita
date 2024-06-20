@@ -1,5 +1,7 @@
 package com.herdialfachri.pangankita.ui.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,17 +29,35 @@ class DetailFragment : Fragment() {
         // Ambil data dari bundle
         val name = arguments?.getString(ARG_NAME)
         val image = arguments?.getString(ARG_IMAGE)
-        val status = arguments?.getString(ARG_STATUS)
+        val whatsapp = arguments?.getString(ARG_WA)
+        val description = arguments?.getString(ARG_DESC)
+        val category = arguments?.getString(ARG_CAT)
 
         // Tampilkan data pada UI menggunakan view binding
         binding.tvDetailName.text = name
-        binding.tvDetailStatus.text = status
+        binding.tvDetailSpecies.text = description
+        binding.tvCategory.text = category
+
+        // Ubah teks tombol WhatsApp menjadi "Buy" jika data WhatsApp tersedia
+        if (!whatsapp.isNullOrEmpty()) {
+            binding.btnWA.text = "Buy Now"
+        }
 
         // Load gambar menggunakan Glide
         image?.let {
             Glide.with(this)
                 .load(it)
                 .into(binding.ivDetailImage)
+        }
+
+        // Set OnClickListener for the WhatsApp button
+        binding.btnWA.setOnClickListener {
+            whatsapp?.let {
+                val intent = Intent(Intent.ACTION_VIEW)
+                val url = "https://api.whatsapp.com/send?phone=$it"
+                intent.data = Uri.parse(url)
+                startActivity(intent)
+            }
         }
     }
 
@@ -49,21 +69,24 @@ class DetailFragment : Fragment() {
     companion object {
         const val ARG_NAME = "arg_name"
         const val ARG_IMAGE = "arg_image"
-        const val ARG_STATUS = "arg_status"
-        const val ARG_SPECIES = "arg_species"
+        const val ARG_WA = "arg_wa"
+        const val ARG_DESC = "arg_desc"
+        const val ARG_CAT = "arg_cat"
 
         fun newInstance(
             name: String?,
             image: String?,
-            status: String?,
-            species: String?
+            whatsapp: String?,
+            description: String?,
+            category: String?
         ): DetailFragment {
             val fragment = DetailFragment()
             val args = Bundle()
             args.putString(ARG_NAME, name)
             args.putString(ARG_IMAGE, image)
-            args.putString(ARG_STATUS, status)
-            args.putString(ARG_SPECIES, species)
+            args.putString(ARG_WA, whatsapp)
+            args.putString(ARG_DESC, description)
+            args.putString(ARG_CAT, category)
             fragment.arguments = args
             return fragment
         }

@@ -11,13 +11,15 @@ import com.bumptech.glide.Glide
 import com.herdialfachri.pangankita.R
 import com.herdialfachri.pangankita.ui.home.DetailFragment
 
-class MortyAdapter(private val dataMorty: List<DataItem?>?) :
-    RecyclerView.Adapter<MortyAdapter.MyViewHolder>() {
+class MortyAdapter(private var dataMorty: List<DataItem?>?) :
+    RecyclerView.Adapter<MortyAdapter.MyViewHolder>(), android.widget.Filterable {
+
+    private var dataMortyFull: List<DataItem?>? = ArrayList(dataMorty)
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val imgMorty = view.findViewById<ImageView>(R.id.recImage)
-        val nameMorty = view.findViewById<TextView>(R.id.recTitle)
-        val statusMorty = view.findViewById<TextView>(R.id.recPriority)
+        val imgMorty: ImageView = view.findViewById(R.id.recImage)
+        val nameMorty: TextView = view.findViewById(R.id.recTitle)
+        val statusMorty: TextView = view.findViewById(R.id.recPriority)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -42,7 +44,8 @@ class MortyAdapter(private val dataMorty: List<DataItem?>?) :
                 currentItem?.name,
                 currentItem?.photo,
                 currentItem?.whatsappNumber,
-                currentItem?.description
+                currentItem?.description,
+                currentItem?.category
             )
             activity.supportFragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
@@ -53,5 +56,32 @@ class MortyAdapter(private val dataMorty: List<DataItem?>?) :
 
     override fun getItemCount(): Int {
         return dataMorty?.size ?: 0
+    }
+
+    override fun getFilter(): android.widget.Filter {
+        return object : android.widget.Filter() {
+            override fun performFiltering(charSequence: CharSequence?): FilterResults {
+                val filteredList = mutableListOf<DataItem?>()
+                if (charSequence == null || charSequence.isEmpty()) {
+                    filteredList.addAll(dataMortyFull ?: emptyList())
+                } else {
+                    val filterPattern = charSequence.toString().toLowerCase().trim()
+                    for (item in dataMortyFull ?: emptyList()) {
+                        if (item?.name?.toLowerCase()?.contains(filterPattern) == true) {
+                            filteredList.add(item)
+                        }
+                    }
+                }
+                val results = FilterResults()
+                results.values = filteredList
+                return results
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults?) {
+                dataMorty = filterResults?.values as List<DataItem?>
+                notifyDataSetChanged()
+            }
+        }
     }
 }
