@@ -42,8 +42,8 @@ class QuestionsFragment : Fragment() {
     }
 
     private fun openWhatsApp() {
-        val phoneNumber = "+621234567890" // Ganti dengan nomor telepon yang diinginkan
-        val url = "https://api.whatsapp.com/send?phone=$phoneNumber"
+        val phoneNumber = "+6282122506110"
+        val url = "https://api.whatsapp.com/send?phone=$phoneNumber&text=Hello, I have some questions"
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
     }
