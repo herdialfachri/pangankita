@@ -53,7 +53,7 @@ class ContactFragment : Fragment(), View.OnClickListener {
 
         when (v.id) {
             R.id.btn_email -> {
-                val namaEmail = "mherdialfachri@ummi.ac.id"
+                val namaEmail = "adminpangankita@gmail.com"
                 val bukaEmail = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:$namaEmail"))
                 startActivity(bukaEmail)
             }
@@ -62,19 +62,19 @@ class ContactFragment : Fragment(), View.OnClickListener {
                 val phoneWhatsapp = "6282122506110"
                 val dialWhatsappIntent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://api.whatsapp.com/send?phone=$phoneWhatsapp&text=Assalamualaikum, saya ingin melaporan...")
+                    Uri.parse("https://api.whatsapp.com/send?phone=$phoneWhatsapp&text=Hello, I have some problem with the App")
                 )
                 startActivity(dialWhatsappIntent)
             }
 
             R.id.btn_website -> {
-                val namaWebsite = "https://www.pemdespalasarigirang.id/"
+                val namaWebsite = "https://dashboard.bangkit.academy/"
                 val bukaWesbite = Intent(Intent.ACTION_VIEW, Uri.parse(namaWebsite))
                 startActivity(bukaWesbite)
             }
 
             R.id.btn_facebook -> {
-                val facebookProfile = "http://instagram.com/rukalo.id"
+                val facebookProfile = "http://instagram.com/google/"
                 val bukaFacebook = Intent(Intent.ACTION_VIEW, Uri.parse(facebookProfile))
                 startActivity(bukaFacebook)
             }

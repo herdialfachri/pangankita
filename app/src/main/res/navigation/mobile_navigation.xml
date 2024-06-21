@@ -64,6 +64,16 @@
             app:destination="@id/aboutFragment"
             app:enterAnim="@anim/slide_right"
             app:popEnterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_copyrightFragment"
+            app:destination="@id/copyrightFragment"
+            app:enterAnim="@anim/slide_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_questionsFragment"
+            app:destination="@id/questionsFragment"
+            app:enterAnim="@anim/slide_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim" />
     </fragment>
     <activity
         android:id="@+id/loginActivity"
@@ -114,4 +124,14 @@
         android:name="com.herdialfachri.pangankita.ui.home.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/copyrightFragment"
+        android:name="com.herdialfachri.pangankita.ui.profile.CopyrightFragment"
+        android:label="fragment_copyright"
+        tools:layout="@layout/fragment_copyright" />
+    <fragment
+        android:id="@+id/questionsFragment"
+        android:name="com.herdialfachri.pangankita.ui.profile.QuestionsFragment"
+        android:label="fragment_questions"
+        tools:layout="@layout/fragment_questions" />
 </navigation>

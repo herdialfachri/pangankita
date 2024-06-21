@@ -106,15 +106,14 @@ class NotificationsFragment : Fragment() {
         binding.buttonUndang.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_shareFragment)
         )
-        binding.buttonTentangAplikasi.setOnClickListener {
-            // Menampilkan pesan "Fitur sedang dikembangkan"
-            showToast("Fitur cara pakai aplikasi sedang dikembangkan")
-        }
-        binding.buttonHakCipta.setOnClickListener {
-            // Menampilkan pesan "Fitur sedang dikembangkan"
-            showToast("Fitur hak cipta sedang dikembangkan")
-        }
+        binding.buttonTentangAplikasi.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_questionsFragment)
+        )
+        binding.buttonHakCipta.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_notifications_to_copyrightFragment)
+        )
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

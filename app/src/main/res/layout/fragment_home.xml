@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/bgHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:queryHint="Cari sayuran segar?"
+        app:queryHint="What are you looking for?"
         app:searchHintIcon="@null"
         app:searchIcon="@drawable/search" />
 
@@ -45,8 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/green"
+        android:textStyle="bold"
         android:text="@string/kategori"
-        android:textSize="17sp"
+        android:textSize="19sp"
         android:theme="@style/CustomTextViewStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bgHome" />
@@ -66,8 +69,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Produk"
-        android:textSize="17sp"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:text="@string/produk"
+        android:textSize="19sp"
         android:theme="@style/CustomTextViewStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvKategori" />

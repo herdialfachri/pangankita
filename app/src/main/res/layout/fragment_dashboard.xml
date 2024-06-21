@@ -27,34 +27,37 @@
 
     <Button
         android:id="@+id/toOffline"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="10dp"
-        android:text="Offline Classify"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/offline_scan"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/toOnline"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_above="@id/toOffline"
         android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Online Classify"
+        android:layout_marginBottom="8dp"
+        android:text="@string/online_scan"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/toOffline"
-        app:layout_constraintEnd_toStartOf="@+id/toOffline"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/toOffline" />
+        app:layout_constraintBottom_toTopOf="@+id/toOffline"
+        app:layout_constraintEnd_toEndOf="@+id/toOffline"
+        app:layout_constraintStart_toStartOf="@+id/toOffline" />
 
     <ImageView
         android:id="@+id/imageView"
